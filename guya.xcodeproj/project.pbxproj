@@ -14,6 +14,7 @@
 		02D305E720913974002C0152 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02D305E520913974002C0152 /* LaunchScreen.storyboard */; };
 		02D305EF20913B91002C0152 /* gitignore in Sources */ = {isa = PBXBuildFile; fileRef = 02D305EE20913B91002C0152 /* gitignore */; };
 		02D305F120913EC5002C0152 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 02D305F020913EC4002C0152 /* Podfile */; };
+		02D305F320913F33002C0152 /* note in Resources */ = {isa = PBXBuildFile; fileRef = 02D305F220913F33002C0152 /* note */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		02D305E820913974002C0152 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02D305EE20913B91002C0152 /* gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = gitignore; sourceTree = "<group>"; };
 		02D305F020913EC4002C0152 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		02D305F220913F33002C0152 /* note */ = {isa = PBXFileReference; lastKnownFileType = text; path = note; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +44,7 @@
 		02D305D020913973002C0152 = {
 			isa = PBXGroup;
 			children = (
+				02D305F220913F33002C0152 /* note */,
 				02D305F020913EC4002C0152 /* Podfile */,
 				02D305DB20913974002C0152 /* guya */,
 				02D305DA20913973002C0152 /* Products */,
@@ -134,6 +137,7 @@
 				02D305E420913974002C0152 /* Assets.xcassets in Resources */,
 				02D305F120913EC5002C0152 /* Podfile in Resources */,
 				02D305E220913974002C0152 /* Main.storyboard in Resources */,
+				02D305F320913F33002C0152 /* note in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

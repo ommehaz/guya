@@ -1,0 +1,5 @@
+add firebase pods, storage and firestore
+connect to firbase, read docs
+test data, get firebase data model data
+make collection view for category
+test cahcing for images
