@@ -12,6 +12,7 @@
 		02D305E220913974002C0152 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02D305E020913974002C0152 /* Main.storyboard */; };
 		02D305E420913974002C0152 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02D305E320913974002C0152 /* Assets.xcassets */; };
 		02D305E720913974002C0152 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02D305E520913974002C0152 /* LaunchScreen.storyboard */; };
+		02D305EF20913B91002C0152 /* gitignore in Sources */ = {isa = PBXBuildFile; fileRef = 02D305EE20913B91002C0152 /* gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		02D305E320913974002C0152 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02D305E620913974002C0152 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02D305E820913974002C0152 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02D305EE20913B91002C0152 /* gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				02D305E320913974002C0152 /* Assets.xcassets */,
 				02D305E520913974002C0152 /* LaunchScreen.storyboard */,
 				02D305E820913974002C0152 /* Info.plist */,
+				02D305EE20913B91002C0152 /* gitignore */,
 			);
 			path = guya;
 			sourceTree = "<group>";
@@ -96,6 +99,7 @@
 				TargetAttributes = {
 					02D305D820913973002C0152 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -138,6 +142,7 @@
 			files = (
 				02D305DF20913974002C0152 /* ViewController.swift in Sources */,
 				02D305DD20913974002C0152 /* AppDelegate.swift in Sources */,
+				02D305EF20913B91002C0152 /* gitignore in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,12 +279,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F43VS33VC5;
 				INFOPLIST_FILE = guya/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tezel.guya.guya;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -289,6 +296,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F43VS33VC5;
 				INFOPLIST_FILE = guya/Info.plist;
