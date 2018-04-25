@@ -4,7 +4,6 @@
 //
 //  Created by Yusuf Tezel on 26/04/2018.
 //  Copyright © 2018 Yusuf Tezel. All rights reserved.
-//
 
 import UIKit
 
