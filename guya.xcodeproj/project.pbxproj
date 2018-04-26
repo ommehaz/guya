@@ -15,6 +15,7 @@
 		02D305EF20913B91002C0152 /* gitignore in Sources */ = {isa = PBXBuildFile; fileRef = 02D305EE20913B91002C0152 /* gitignore */; };
 		02D305F120913EC5002C0152 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 02D305F020913EC4002C0152 /* Podfile */; };
 		02D305F320913F33002C0152 /* note in Resources */ = {isa = PBXBuildFile; fileRef = 02D305F220913F33002C0152 /* note */; };
+		7DB6A972D8317AE6D0CAB00F /* Pods_guya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26C19B0397A3DF70A6BF522 /* Pods_guya.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +27,11 @@
 		02D305E620913974002C0152 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02D305E820913974002C0152 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02D305EE20913B91002C0152 /* gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = gitignore; sourceTree = "<group>"; };
-		02D305F020913EC4002C0152 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		02D305F020913EC4002C0152 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		02D305F220913F33002C0152 /* note */ = {isa = PBXFileReference; lastKnownFileType = text; path = note; sourceTree = "<group>"; };
+		99F41551DD130EDC142F618D /* Pods-guya.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-guya.debug.xcconfig"; path = "Pods/Target Support Files/Pods-guya/Pods-guya.debug.xcconfig"; sourceTree = "<group>"; };
+		BEF55B1802EA6AD225B30E1A /* Pods-guya.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-guya.release.xcconfig"; path = "Pods/Target Support Files/Pods-guya/Pods-guya.release.xcconfig"; sourceTree = "<group>"; };
+		E26C19B0397A3DF70A6BF522 /* Pods_guya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_guya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DB6A972D8317AE6D0CAB00F /* Pods_guya.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +53,8 @@
 				02D305F020913EC4002C0152 /* Podfile */,
 				02D305DB20913974002C0152 /* guya */,
 				02D305DA20913973002C0152 /* Products */,
+				A253F4A8370322D1CDEB05A3 /* Pods */,
+				B9C45089E4FCAC6D5A33F8A4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +80,23 @@
 			path = guya;
 			sourceTree = "<group>";
 		};
+		A253F4A8370322D1CDEB05A3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				99F41551DD130EDC142F618D /* Pods-guya.debug.xcconfig */,
+				BEF55B1802EA6AD225B30E1A /* Pods-guya.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B9C45089E4FCAC6D5A33F8A4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E26C19B0397A3DF70A6BF522 /* Pods_guya.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,9 +104,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 02D305EB20913974002C0152 /* Build configuration list for PBXNativeTarget "guya" */;
 			buildPhases = (
+				426FC17989EA8E34208C786B /* [CP] Check Pods Manifest.lock */,
 				02D305D520913973002C0152 /* Sources */,
 				02D305D620913973002C0152 /* Frameworks */,
 				02D305D720913973002C0152 /* Resources */,
+				A82C089A4852B139AEDABE93 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -142,6 +168,63 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		426FC17989EA8E34208C786B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-guya-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A82C089A4852B139AEDABE93 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-guya/Pods-guya-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-guya/Pods-guya-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		02D305D520913973002C0152 /* Sources */ = {
@@ -285,6 +368,7 @@
 		};
 		02D305EC20913974002C0152 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99F41551DD130EDC142F618D /* Pods-guya.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -302,6 +386,7 @@
 		};
 		02D305ED20913974002C0152 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEF55B1802EA6AD225B30E1A /* Pods-guya.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

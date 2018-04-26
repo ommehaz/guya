@@ -6,5 +6,7 @@ target 'guya' do
   use_frameworks!
 
   # Pods for guya
-
+    pod 'Firebase/Core'
+    pod 'Firebase/Firestore'
+    pod 'Firebase/Storage'
 end
