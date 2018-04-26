@@ -15,6 +15,7 @@
 		02D305EF20913B91002C0152 /* gitignore in Sources */ = {isa = PBXBuildFile; fileRef = 02D305EE20913B91002C0152 /* gitignore */; };
 		02D305F120913EC5002C0152 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 02D305F020913EC4002C0152 /* Podfile */; };
 		02D305F320913F33002C0152 /* note in Resources */ = {isa = PBXBuildFile; fileRef = 02D305F220913F33002C0152 /* note */; };
+		02E9DFB02091E3D700925FFD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02E9DFAF2091E3D700925FFD /* GoogleService-Info.plist */; };
 		7DB6A972D8317AE6D0CAB00F /* Pods_guya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26C19B0397A3DF70A6BF522 /* Pods_guya.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		02D305EE20913B91002C0152 /* gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = gitignore; sourceTree = "<group>"; };
 		02D305F020913EC4002C0152 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		02D305F220913F33002C0152 /* note */ = {isa = PBXFileReference; lastKnownFileType = text; path = note; sourceTree = "<group>"; };
+		02E9DFAF2091E3D700925FFD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		99F41551DD130EDC142F618D /* Pods-guya.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-guya.debug.xcconfig"; path = "Pods/Target Support Files/Pods-guya/Pods-guya.debug.xcconfig"; sourceTree = "<group>"; };
 		BEF55B1802EA6AD225B30E1A /* Pods-guya.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-guya.release.xcconfig"; path = "Pods/Target Support Files/Pods-guya/Pods-guya.release.xcconfig"; sourceTree = "<group>"; };
 		E26C19B0397A3DF70A6BF522 /* Pods_guya.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_guya.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +71,7 @@
 		02D305DB20913974002C0152 /* guya */ = {
 			isa = PBXGroup;
 			children = (
+				02E9DFAF2091E3D700925FFD /* GoogleService-Info.plist */,
 				02D305DC20913974002C0152 /* AppDelegate.swift */,
 				02D305DE20913974002C0152 /* ViewController.swift */,
 				02D305E020913974002C0152 /* Main.storyboard */,
@@ -164,6 +167,7 @@
 				02D305F120913EC5002C0152 /* Podfile in Resources */,
 				02D305E220913974002C0152 /* Main.storyboard in Resources */,
 				02D305F320913F33002C0152 /* note in Resources */,
+				02E9DFB02091E3D700925FFD /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,7 +380,7 @@
 				DEVELOPMENT_TEAM = F43VS33VC5;
 				INFOPLIST_FILE = guya/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tezel.guya.guya;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tezel.guya;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -394,7 +398,7 @@
 				DEVELOPMENT_TEAM = F43VS33VC5;
 				INFOPLIST_FILE = guya/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tezel.guya.guya;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tezel.guya;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
