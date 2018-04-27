@@ -20,26 +20,26 @@ class ViewController: UIViewController {
     var plusButton: UIButton = {
        let b = UIButton()
         b.setTitle("+", for: .normal)
+        b.titleLabel?.font = b.titleLabel?.font.withSize(40)
         return b
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        // Do any additional setup after loading the view, typically from a nib.
         view.addSubview(topBar)
         topBar.addSubview(plusButton)
         
         plusButton.snp.makeConstraints {
-            $0.trailingMargin.equalToSuperview()
+            $0.trailingMargin.equalToSuperview().offset(-20)
             $0.bottomMargin.equalToSuperview()
         }
         
-        topBar.snp.makeConstraints { (make) -> Void in
-            make.leadingMargin.equalTo(view.snp.leading)
-            make.trailingMargin.equalTo(view.snp.trailing)
-            make.topMargin.equalTo(view.snp.top)
-            make.height.equalTo((view.bounds.height / 6))
+        topBar.snp.makeConstraints {
+            $0.leadingMargin.equalTo(view.snp.leading)
+            $0.trailingMargin.equalTo(view.snp.trailing)
+            $0.topMargin.equalTo(view.snp.top)
+            $0.height.equalTo((view.bounds.height / 5))
         }
     }
 }
