@@ -9,4 +9,5 @@ target 'guya' do
     pod 'Firebase/Core'
     pod 'Firebase/Firestore'
     pod 'Firebase/Storage'
+    pod 'SnapKit', '~> 4.0'
 end

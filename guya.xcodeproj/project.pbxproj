@@ -8,12 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		020D6EE42091F3200040CC74 /* FoodCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D6EE32091F3200040CC74 /* FoodCategory.swift */; };
+		020D6EE620927F1A0040CC74 /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D6EE520927F1A0040CC74 /* DataContainer.swift */; };
 		02D305DD20913974002C0152 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D305DC20913974002C0152 /* AppDelegate.swift */; };
 		02D305DF20913974002C0152 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D305DE20913974002C0152 /* ViewController.swift */; };
-		02D305E220913974002C0152 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02D305E020913974002C0152 /* Main.storyboard */; };
 		02D305E420913974002C0152 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02D305E320913974002C0152 /* Assets.xcassets */; };
-		02D305E720913974002C0152 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02D305E520913974002C0152 /* LaunchScreen.storyboard */; };
-		02D305EF20913B91002C0152 /* gitignore in Sources */ = {isa = PBXBuildFile; fileRef = 02D305EE20913B91002C0152 /* gitignore */; };
 		02D305F120913EC5002C0152 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 02D305F020913EC4002C0152 /* Podfile */; };
 		02D305F320913F33002C0152 /* note in Resources */ = {isa = PBXBuildFile; fileRef = 02D305F220913F33002C0152 /* note */; };
 		02E9DFB02091E3D700925FFD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02E9DFAF2091E3D700925FFD /* GoogleService-Info.plist */; };
@@ -22,14 +20,12 @@
 
 /* Begin PBXFileReference section */
 		020D6EE32091F3200040CC74 /* FoodCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategory.swift; sourceTree = "<group>"; };
+		020D6EE520927F1A0040CC74 /* DataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataContainer.swift; sourceTree = "<group>"; };
 		02D305D920913973002C0152 /* guya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = guya.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02D305DC20913974002C0152 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02D305DE20913974002C0152 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		02D305E120913974002C0152 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		02D305E320913974002C0152 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		02D305E620913974002C0152 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02D305E820913974002C0152 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		02D305EE20913B91002C0152 /* gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = gitignore; sourceTree = "<group>"; };
 		02D305F020913EC4002C0152 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		02D305F220913F33002C0152 /* note */ = {isa = PBXFileReference; lastKnownFileType = text; path = note; sourceTree = "<group>"; };
 		02E9DFAF2091E3D700925FFD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -50,10 +46,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		020D6EE72093C2220040CC74 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				020D6EE32091F3200040CC74 /* FoodCategory.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		020D6EE82093C2380040CC74 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				020D6EE520927F1A0040CC74 /* DataContainer.swift */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
 		02D305D020913973002C0152 = {
 			isa = PBXGroup;
 			children = (
-				02D305EE20913B91002C0152 /* gitignore */,
 				02D305F220913F33002C0152 /* note */,
 				02D305F020913EC4002C0152 /* Podfile */,
 				02D305DB20913974002C0152 /* guya */,
@@ -77,11 +88,10 @@
 				02E9DFAF2091E3D700925FFD /* GoogleService-Info.plist */,
 				02D305DC20913974002C0152 /* AppDelegate.swift */,
 				02D305DE20913974002C0152 /* ViewController.swift */,
-				02D305E020913974002C0152 /* Main.storyboard */,
 				02D305E320913974002C0152 /* Assets.xcassets */,
-				02D305E520913974002C0152 /* LaunchScreen.storyboard */,
 				02D305E820913974002C0152 /* Info.plist */,
-				020D6EE32091F3200040CC74 /* FoodCategory.swift */,
+				020D6EE82093C2380040CC74 /* data */,
+				020D6EE72093C2220040CC74 /* model */,
 			);
 			path = guya;
 			sourceTree = "<group>";
@@ -165,10 +175,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02D305E720913974002C0152 /* LaunchScreen.storyboard in Resources */,
 				02D305E420913974002C0152 /* Assets.xcassets in Resources */,
 				02D305F120913EC5002C0152 /* Podfile in Resources */,
-				02D305E220913974002C0152 /* Main.storyboard in Resources */,
 				02D305F320913F33002C0152 /* note in Resources */,
 				02E9DFB02091E3D700925FFD /* GoogleService-Info.plist in Resources */,
 			);
@@ -206,6 +214,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
@@ -219,6 +228,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
@@ -239,32 +249,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				02D305DF20913974002C0152 /* ViewController.swift in Sources */,
+				020D6EE620927F1A0040CC74 /* DataContainer.swift in Sources */,
 				02D305DD20913974002C0152 /* AppDelegate.swift in Sources */,
-				02D305EF20913B91002C0152 /* gitignore in Sources */,
 				020D6EE42091F3200040CC74 /* FoodCategory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		02D305E020913974002C0152 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				02D305E120913974002C0152 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		02D305E520913974002C0152 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				02D305E620913974002C0152 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		02D305E920913974002C0152 /* Debug */ = {
