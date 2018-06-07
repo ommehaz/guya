@@ -27,6 +27,14 @@ class ViewController: UIViewController {
         return l
     }()
     
+    var loadingLabel: UILabel = {
+        let l = UILabel()
+        l.font = UIFont.systemFont(ofSize: 20.0)
+        l.textColor = .white
+        l.text = "Henter data..."
+        return l
+    }()
+    
     var topBarExtension: UIView = {
         let v = UIView()
         v.backgroundColor = .red
@@ -43,12 +51,30 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        view.addSubview(topBar)
-        view.addSubview(topBarExtension)
-        topBar.addSubview(plusButton)
-        topBar.addSubview(amountLabel)
-        snpControls()
+        
+        view.backgroundColor = .red
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.startAnimating()
+        self.view.addSubview(activityIndicator)
+        self.view.addSubview(loadingLabel)
+
+        loadingLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(activityIndicator).offset(50)
+        }
+        
+        DataContainer.shared.fetchData {
+            activityIndicator.stopAnimating()
+            print(DataContainer.shared.foodCategories)
+            self.view.backgroundColor = .white
+            self.view.addSubview(self.topBar)
+            self.view.addSubview(self.topBarExtension)
+            self.topBar.addSubview(self.plusButton)
+            self.topBar.addSubview(self.amountLabel)
+            self.snpControls()
+        }
     }
     
     @objc func plusButtonTapped(sender: UIButton){
@@ -61,7 +87,7 @@ class ViewController: UIViewController {
                 self.plusButton.transform = CGAffineTransform(rotationAngle: -CGFloat.pi/4)
                 self.view.layoutIfNeeded()
             }
-        }else {
+        } else {
             topBarExtension.snp.updateConstraints {
                 $0.height.equalTo(0)
             }

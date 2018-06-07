@@ -14,6 +14,12 @@ class DataContainer {
     private let db = Firestore.firestore()
     var foodCategories = [FoodCategory]()
     
+    private init() {
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        db.settings = settings
+    }
+    
     func fetchData(callback: @escaping () -> Void){
         db.collection("foodCategory").getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -25,8 +31,5 @@ class DataContainer {
                 callback()
             }
         }
-    }
-    
-    private init() {
     }
 }
