@@ -14,6 +14,7 @@ struct FoodCategory {
     let enabled: Bool
     let imageName: String
     let rank: Int
+    let imageUrl: String
     
     init(id: String, data: [String:Any]) {
         self.id = id
@@ -21,5 +22,6 @@ struct FoodCategory {
         self.enabled = data["enabled"] as! Bool
         self.imageName = data["imageName"] as! String
         self.rank = data["rank"] as! Int
+        self.imageUrl = data["imageUrl"] as! String
     }
 }

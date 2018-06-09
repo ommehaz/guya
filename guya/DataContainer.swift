@@ -21,7 +21,7 @@ class DataContainer {
     }
     
     func fetchData(callback: @escaping () -> Void){
-        db.collection("foodCategory").getDocuments() { (querySnapshot, err) in
+        db.collection("foodCategory").order(by: "rank", descending: true).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {

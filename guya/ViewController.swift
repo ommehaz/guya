@@ -12,6 +12,7 @@ import SnapKit
 class ViewController: UIViewController {
     
     var isCategoryMenuOpen = false
+    let foodCategoryCollectionViewSource = FoodCategoryCollectionViewSource()
     
     var topBar: UIView = {
         let v = UIView()
@@ -41,6 +42,18 @@ class ViewController: UIViewController {
         return v
     }()
     
+    var foodCategoryCollectionView: UICollectionView = {
+        let cfl = UICollectionViewFlowLayout()
+        cfl.scrollDirection = .horizontal
+        var cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: cfl)
+        cv.layer.cornerRadius = 20
+        cv.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        cv.showsVerticalScrollIndicator = false
+        cv.showsHorizontalScrollIndicator = false
+        cv.register(FoodCategoryCell.self, forCellWithReuseIdentifier: "Cell")
+        return cv
+    }()
+    
     var plusButton: UIButton = {
         let b = UIButton()
         b.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
@@ -59,6 +72,8 @@ class ViewController: UIViewController {
         activityIndicator.startAnimating()
         self.view.addSubview(activityIndicator)
         self.view.addSubview(loadingLabel)
+        foodCategoryCollectionView.dataSource = foodCategoryCollectionViewSource
+        foodCategoryCollectionView.delegate = foodCategoryCollectionViewSource
 
         loadingLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
@@ -67,29 +82,32 @@ class ViewController: UIViewController {
         
         DataContainer.shared.fetchData {
             activityIndicator.stopAnimating()
+            self.loadingLabel.removeFromSuperview()
             print(DataContainer.shared.foodCategories)
             self.view.backgroundColor = .white
             self.view.addSubview(self.topBar)
             self.view.addSubview(self.topBarExtension)
+            self.view.addSubview(self.foodCategoryCollectionView)
             self.topBar.addSubview(self.plusButton)
             self.topBar.addSubview(self.amountLabel)
             self.snpControls()
+            self.foodCategoryCollectionView.reloadData()
         }
     }
     
     @objc func plusButtonTapped(sender: UIButton){
         self.isCategoryMenuOpen = !self.isCategoryMenuOpen
         if(self.isCategoryMenuOpen){
-            topBarExtension.snp.updateConstraints {
-                $0.height.equalTo(100)
+            foodCategoryCollectionView.snp.updateConstraints {
+                $0.leadingMargin.equalToSuperview()
             }
             UIView.animate(withDuration: 0.25) {
                 self.plusButton.transform = CGAffineTransform(rotationAngle: -CGFloat.pi/4)
                 self.view.layoutIfNeeded()
             }
         } else {
-            topBarExtension.snp.updateConstraints {
-                $0.height.equalTo(0)
+            foodCategoryCollectionView.snp.updateConstraints {
+                $0.leadingMargin.equalToSuperview().offset(UIScreen.main.bounds.width)
             }
             UIView.animate(withDuration: 0.25, animations: {
                 self.plusButton.transform = .identity
@@ -99,11 +117,6 @@ class ViewController: UIViewController {
     }
     
     func snpControls(){
-        plusButton.snp.makeConstraints {
-            $0.trailingMargin.equalToSuperview().offset(-20)
-            $0.bottomMargin.equalToSuperview()
-        }
-        
         topBar.snp.makeConstraints {
             $0.leadingMargin.equalTo(view.snp.leading)
             $0.trailingMargin.equalTo(view.snp.trailing)
@@ -111,9 +124,21 @@ class ViewController: UIViewController {
             $0.height.equalTo((view.bounds.height / 6))
         }
         
+        plusButton.snp.makeConstraints {
+            $0.trailingMargin.equalToSuperview().offset(-20)
+            $0.bottomMargin.equalToSuperview()
+        }
+        
         amountLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.bottom.equalToSuperview().offset(-10)
+        }
+        
+        foodCategoryCollectionView.snp.makeConstraints {
+            $0.leadingMargin.equalToSuperview().offset(UIScreen.main.bounds.width)
+            $0.topMargin.equalTo(topBar.snp.bottomMargin).offset(20)
+            $0.width.equalToSuperview()
+            $0.height.equalTo(80)
         }
         
         topBarExtension.snp.makeConstraints {

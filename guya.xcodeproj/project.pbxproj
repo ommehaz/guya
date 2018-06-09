@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		020D6EE42091F3200040CC74 /* FoodCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D6EE32091F3200040CC74 /* FoodCategory.swift */; };
 		020D6EE620927F1A0040CC74 /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D6EE520927F1A0040CC74 /* DataContainer.swift */; };
-		020D6EEB20C9D8280040CC74 /* FoodCategoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D6EEA20C9D8280040CC74 /* FoodCategoryCollectionViewController.swift */; };
-		020D6EEF20C9DB7B0040CC74 /* pizza-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 020D6EEE20C9DB7B0040CC74 /* pizza-icon.png */; };
+		020D6EEF20C9DB7B0040CC74 /* dummypic.png in Resources */ = {isa = PBXBuildFile; fileRef = 020D6EEE20C9DB7B0040CC74 /* dummypic.png */; };
+		020D6EF220CB29530040CC74 /* FoodCategoryCollectionViewSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D6EF120CB29530040CC74 /* FoodCategoryCollectionViewSource.swift */; };
+		020D6EF420CB29CE0040CC74 /* FoodCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D6EF320CB29CE0040CC74 /* FoodCategoryCell.swift */; };
 		02D305DD20913974002C0152 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D305DC20913974002C0152 /* AppDelegate.swift */; };
 		02D305DF20913974002C0152 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D305DE20913974002C0152 /* ViewController.swift */; };
 		02D305E420913974002C0152 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02D305E320913974002C0152 /* Assets.xcassets */; };
@@ -23,8 +24,9 @@
 /* Begin PBXFileReference section */
 		020D6EE32091F3200040CC74 /* FoodCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategory.swift; sourceTree = "<group>"; };
 		020D6EE520927F1A0040CC74 /* DataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataContainer.swift; sourceTree = "<group>"; };
-		020D6EEA20C9D8280040CC74 /* FoodCategoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategoryCollectionViewController.swift; sourceTree = "<group>"; };
-		020D6EEE20C9DB7B0040CC74 /* pizza-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pizza-icon.png"; sourceTree = "<group>"; };
+		020D6EEE20C9DB7B0040CC74 /* dummypic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dummypic.png; sourceTree = "<group>"; };
+		020D6EF120CB29530040CC74 /* FoodCategoryCollectionViewSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategoryCollectionViewSource.swift; sourceTree = "<group>"; };
+		020D6EF320CB29CE0040CC74 /* FoodCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategoryCell.swift; sourceTree = "<group>"; };
 		02D305D920913973002C0152 /* guya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = guya.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02D305DC20913974002C0152 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02D305DE20913974002C0152 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,7 +63,7 @@
 		020D6EEC20C9D8440040CC74 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				020D6EEA20C9D8280040CC74 /* FoodCategoryCollectionViewController.swift */,
+				020D6EF120CB29530040CC74 /* FoodCategoryCollectionViewSource.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -78,6 +80,7 @@
 		020D6EF020C9DBBE0040CC74 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				020D6EF320CB29CE0040CC74 /* FoodCategoryCell.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -105,7 +108,7 @@
 		02D305DB20913974002C0152 /* guya */ = {
 			isa = PBXGroup;
 			children = (
-				020D6EEE20C9DB7B0040CC74 /* pizza-icon.png */,
+				020D6EEE20C9DB7B0040CC74 /* dummypic.png */,
 				02D305E820913974002C0152 /* Info.plist */,
 				02E9DFAF2091E3D700925FFD /* GoogleService-Info.plist */,
 				02D305DE20913974002C0152 /* ViewController.swift */,
@@ -199,7 +202,7 @@
 			files = (
 				02D305E420913974002C0152 /* Assets.xcassets in Resources */,
 				02D305F120913EC5002C0152 /* Podfile in Resources */,
-				020D6EEF20C9DB7B0040CC74 /* pizza-icon.png in Resources */,
+				020D6EEF20C9DB7B0040CC74 /* dummypic.png in Resources */,
 				02D305F320913F33002C0152 /* note in Resources */,
 				02E9DFB02091E3D700925FFD /* GoogleService-Info.plist in Resources */,
 			);
@@ -237,6 +240,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
@@ -251,6 +255,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
@@ -271,9 +276,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				020D6EEB20C9D8280040CC74 /* FoodCategoryCollectionViewController.swift in Sources */,
 				02D305DF20913974002C0152 /* ViewController.swift in Sources */,
+				020D6EF220CB29530040CC74 /* FoodCategoryCollectionViewSource.swift in Sources */,
 				020D6EE620927F1A0040CC74 /* DataContainer.swift in Sources */,
+				020D6EF420CB29CE0040CC74 /* FoodCategoryCell.swift in Sources */,
 				02D305DD20913974002C0152 /* AppDelegate.swift in Sources */,
 				020D6EE42091F3200040CC74 /* FoodCategory.swift in Sources */,
 			);
