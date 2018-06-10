@@ -12,6 +12,7 @@ import SnapKit
 class ViewController: UIViewController {
     
     var isCategoryMenuOpen = false
+    var foodCategoryCollectionViewLeadingConstraint: Constraint? = nil
     let foodCategoryCollectionViewSource = FoodCategoryCollectionViewSource()
     
     var topBar: UIView = {
@@ -36,18 +37,15 @@ class ViewController: UIViewController {
         return l
     }()
     
-    var topBarExtension: UIView = {
-        let v = UIView()
-        v.backgroundColor = .red
-        return v
-    }()
+
     
-    var foodCategoryCollectionView: UICollectionView = {
+    lazy var foodCategoryCollectionView: UICollectionView = {
         let cfl = UICollectionViewFlowLayout()
         cfl.scrollDirection = .horizontal
         var cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: cfl)
-        cv.layer.cornerRadius = 20
-        cv.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        cv.backgroundColor = .clear
+        cv.dataSource = foodCategoryCollectionViewSource
+        cv.delegate = foodCategoryCollectionViewSource
         cv.showsVerticalScrollIndicator = false
         cv.showsHorizontalScrollIndicator = false
         cv.register(FoodCategoryCell.self, forCellWithReuseIdentifier: "Cell")
@@ -64,88 +62,78 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .red
+        
         let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         activityIndicator.center = view.center
         activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
         self.view.addSubview(activityIndicator)
         self.view.addSubview(loadingLabel)
-        foodCategoryCollectionView.dataSource = foodCategoryCollectionViewSource
-        foodCategoryCollectionView.delegate = foodCategoryCollectionViewSource
 
         loadingLabel.snp.makeConstraints {
+            let topOffsetFromActivityIndicator = 50
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(activityIndicator).offset(50)
+            $0.top.equalTo(activityIndicator).offset(topOffsetFromActivityIndicator)
         }
         
         DataContainer.shared.fetchData {
-            activityIndicator.stopAnimating()
             self.loadingLabel.removeFromSuperview()
-            print(DataContainer.shared.foodCategories)
+            activityIndicator.stopAnimating()
             self.view.backgroundColor = .white
+            
+            //add topbar and subitems
             self.view.addSubview(self.topBar)
-            self.view.addSubview(self.topBarExtension)
-            self.view.addSubview(self.foodCategoryCollectionView)
             self.topBar.addSubview(self.plusButton)
             self.topBar.addSubview(self.amountLabel)
-            self.snpControls()
-            self.foodCategoryCollectionView.reloadData()
+            
+            //add foodCategoryCollectionView
+            self.view.addSubview(self.foodCategoryCollectionView)
+            
+            //add contraints
+            self.snapUI()
         }
     }
     
     @objc func plusButtonTapped(sender: UIButton){
-        self.isCategoryMenuOpen = !self.isCategoryMenuOpen
-        if(self.isCategoryMenuOpen){
-            foodCategoryCollectionView.snp.updateConstraints {
-                $0.leadingMargin.equalToSuperview()
-            }
-            UIView.animate(withDuration: 0.25) {
-                self.plusButton.transform = CGAffineTransform(rotationAngle: -CGFloat.pi/4)
-                self.view.layoutIfNeeded()
-            }
-        } else {
-            foodCategoryCollectionView.snp.updateConstraints {
-                $0.leadingMargin.equalToSuperview().offset(UIScreen.main.bounds.width)
-            }
-            UIView.animate(withDuration: 0.25, animations: {
-                self.plusButton.transform = .identity
-                self.view.layoutIfNeeded()
-            })
+        let screenWidthSize = UIScreen.main.bounds.width
+        isCategoryMenuOpen = !isCategoryMenuOpen
+
+        foodCategoryCollectionViewLeadingConstraint?.update(offset: self.isCategoryMenuOpen ? 0: screenWidthSize)
+        UIView.animate(withDuration: 0.25) {
+            self.plusButton.transform = self.isCategoryMenuOpen ? CGAffineTransform(rotationAngle: -CGFloat.pi/4): CGAffineTransform.identity
+            self.view.layoutIfNeeded()
         }
     }
     
-    func snpControls(){
+    func snapUI(){
         topBar.snp.makeConstraints {
-            $0.leadingMargin.equalTo(view.snp.leading)
-            $0.trailingMargin.equalTo(view.snp.trailing)
-            $0.topMargin.equalTo(view.snp.top)
-            $0.height.equalTo((view.bounds.height / 6))
+            let height = self.view.bounds.height / 9
+            $0.leading.equalTo(view).labeled("topBarLeading")
+            $0.trailing.equalTo(view).labeled("topBarTrailing")
+            $0.top.equalTo(view).labeled("topBarTop")
+            $0.height.equalTo(height).labeled("topBarHeight")
         }
         
         plusButton.snp.makeConstraints {
-            $0.trailingMargin.equalToSuperview().offset(-20)
-            $0.bottomMargin.equalToSuperview()
+            let trailingOffset = -20
+            $0.trailing.equalToSuperview().offset(trailingOffset).labeled("plusButtonTrailing")
+            $0.bottom.equalToSuperview().labeled("plusButtonBottom")
         }
         
         amountLabel.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(-10)
+            let bottomOffset = -10
+            $0.centerX.equalToSuperview().labeled("amountLabelCenterX")
+            $0.bottom.equalToSuperview().offset(bottomOffset).labeled("amountLabelBottom")
         }
         
         foodCategoryCollectionView.snp.makeConstraints {
-            $0.leadingMargin.equalToSuperview().offset(UIScreen.main.bounds.width)
-            $0.topMargin.equalTo(topBar.snp.bottomMargin).offset(20)
-            $0.width.equalToSuperview()
-            $0.height.equalTo(80)
-        }
-        
-        topBarExtension.snp.makeConstraints {
-            $0.leadingMargin.equalTo(view.snp.leading)
-            $0.trailingMargin.equalTo(view.snp.trailing)
-            $0.topMargin.equalTo(topBar.snp.bottom)
-            $0.height.equalTo(0)
+            let height = self.view.bounds.height / 9
+            let topOffset = 1
+            foodCategoryCollectionViewLeadingConstraint = $0.leading.equalToSuperview().offset(UIScreen.main.bounds.width).labeled("foodCategoryCollectionViewLeading").constraint
+            $0.top.equalTo(topBar.snp.bottom).offset(topOffset).labeled("foodCategoryCollectionViewTop")
+            $0.width.equalToSuperview().labeled("foodCategoryCollectionViewWidth")
+            $0.height.equalTo(height).labeled("foodCategoryCollectionViewHeight")
         }
     }
 }
