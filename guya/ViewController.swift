@@ -12,12 +12,20 @@ import SnapKit
 class ViewController: UIViewController {
     
     var isCategoryMenuOpen = false
+    lazy var defaultHeight = self.view.bounds.height / 9
     var foodCategoryCollectionViewLeadingConstraint: Constraint? = nil
+    var bodyTopConstraint: Constraint? = nil
     let foodCategoryCollectionViewSource = FoodCategoryCollectionViewSource()
     
     var topBar: UIView = {
         let v = UIView()
         v.backgroundColor = .red
+        return v
+    }()
+    
+    var body: UIView = {
+        let v = UIView()
+        v.backgroundColor = .blue
         return v
     }()
     
@@ -36,8 +44,6 @@ class ViewController: UIViewController {
         l.text = "Henter data..."
         return l
     }()
-    
-
     
     lazy var foodCategoryCollectionView: UICollectionView = {
         let cfl = UICollectionViewFlowLayout()
@@ -90,6 +96,8 @@ class ViewController: UIViewController {
             //add foodCategoryCollectionView
             self.view.addSubview(self.foodCategoryCollectionView)
             
+            self.view.addSubview(self.body)
+            
             //add contraints
             self.snapUI()
         }
@@ -100,6 +108,8 @@ class ViewController: UIViewController {
         isCategoryMenuOpen = !isCategoryMenuOpen
 
         foodCategoryCollectionViewLeadingConstraint?.update(offset: self.isCategoryMenuOpen ? 0: screenWidthSize)
+        bodyTopConstraint?.update(offset: self.isCategoryMenuOpen ? (defaultHeight + 2): 0)
+        
         UIView.animate(withDuration: 0.25) {
             self.plusButton.transform = self.isCategoryMenuOpen ? CGAffineTransform(rotationAngle: -CGFloat.pi/4): CGAffineTransform.identity
             self.view.layoutIfNeeded()
@@ -107,12 +117,20 @@ class ViewController: UIViewController {
     }
     
     func snapUI(){
+        
         topBar.snp.makeConstraints {
-            let height = self.view.bounds.height / 9
             $0.leading.equalTo(view).labeled("topBarLeading")
             $0.trailing.equalTo(view).labeled("topBarTrailing")
             $0.top.equalTo(view).labeled("topBarTop")
-            $0.height.equalTo(height).labeled("topBarHeight")
+            $0.height.equalTo(defaultHeight).labeled("topBarHeight")
+        }
+        
+        // this will be tableview
+        body.snp.makeConstraints {
+            $0.bottom.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.leading.equalToSuperview()
+            bodyTopConstraint = $0.top.equalTo(topBar.snp.bottom).constraint
         }
         
         plusButton.snp.makeConstraints {
@@ -128,12 +146,11 @@ class ViewController: UIViewController {
         }
         
         foodCategoryCollectionView.snp.makeConstraints {
-            let height = self.view.bounds.height / 9
             let topOffset = 1
             foodCategoryCollectionViewLeadingConstraint = $0.leading.equalToSuperview().offset(UIScreen.main.bounds.width).labeled("foodCategoryCollectionViewLeading").constraint
             $0.top.equalTo(topBar.snp.bottom).offset(topOffset).labeled("foodCategoryCollectionViewTop")
             $0.width.equalToSuperview().labeled("foodCategoryCollectionViewWidth")
-            $0.height.equalTo(height).labeled("foodCategoryCollectionViewHeight")
+            $0.height.equalTo(defaultHeight).labeled("foodCategoryCollectionViewHeight")
         }
     }
 }
